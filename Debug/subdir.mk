@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../CoaxXSection.cpp \
+../Ellipse.cpp \
 ../MicrostripXSection.cpp \
 ../OutputFile.cpp \
 ../StriplineXSection.cpp \
@@ -15,6 +16,7 @@ CPP_SRCS += \
 
 OBJS += \
 ./CoaxXSection.o \
+./Ellipse.o \
 ./MicrostripXSection.o \
 ./OutputFile.o \
 ./StriplineXSection.o \
@@ -25,6 +27,7 @@ OBJS += \
 
 CPP_DEPS += \
 ./CoaxXSection.d \
+./Ellipse.d \
 ./MicrostripXSection.d \
 ./OutputFile.d \
 ./StriplineXSection.d \

@@ -24,10 +24,6 @@ using namespace std;
 
 /* Function Prototypes */
 
-//TESTING
-
-
-
 TRLineXSect* getXSect(string type, double f);
 vector <TRLine> makeTRLineVector(int N, TRLine sum);
 vector <int> makeLengthsVector(int N, double l);
@@ -140,7 +136,7 @@ int main() {
 		phases.push_back(x);
 
 	}
-	outputData(fingerPositions, magnitudes, phases);
+	//outputData(fingerPositions, magnitudes, phases);
 
 	//prints out new total Zin and reflection coeff after TRLine is pinched
 	TRLinesTotal newTotal(TRLines, lengths, zLoad);
