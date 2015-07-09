@@ -5,6 +5,7 @@
  *      Author: sarahradzihovsky
  */
 
+#include "OutputFile.h"
 #include "TRLinesTotal.h"
 #include "TRLineXSect.h"
 #include "TRLine.h"
@@ -12,6 +13,8 @@
 #include "StriplineXSection.h"
 #include "MicrostripXSection.h"
 #include <iostream>
+#include <fstream>
+#include <iomanip>
 #include <math.h>
 #include <string>
 #include <cctype>
@@ -20,6 +23,10 @@
 using namespace std;
 
 /* Function Prototypes */
+
+//TESTING
+
+
 
 TRLineXSect* getXSect(string type, double f);
 vector <TRLine> makeTRLineVector(int N, TRLine sum);
@@ -60,7 +67,7 @@ int main() {
 	TRLine sum = TRLine (zLoad, trXSect, l);
 
 	cout << "Inner Impedance (ohms), Reflection Coefficient = " << sum.getZin(f)
-																												<< ", " << sum.getGamma() << endl;
+																																				<< ", " << sum.getGamma() << endl;
 
 	cout << "Number of TRLine Segments in full line:" << endl;
 	cin >> N;
@@ -101,6 +108,7 @@ int main() {
 			updated.at(i + j) = pinchedSeg.at(j);
 
 		}
+
 		vector <int> pinchedLengths;
 		for (int k = 0; k < y; k++){
 			pinchedLengths.push_back(lengths.at(i + k));
@@ -117,27 +125,27 @@ int main() {
 		double magn = sqrt(pow(rl, 2) + pow(img, 2));
 		double phase = atan(img / rl);
 		cout << "center of finger at " << x << "meters from end" << endl;
-		cout << "Gamma Magnitude, Gamma Phase" << magn << ", " << phase << endl;
+		cout << "Gamma Magnitude, Gamma Phase = " << magn << ", " << phase << endl;
 
-		//CSV file headers and opening of file
-//		ofstream Pinch_Data ("TRLine_Pinch_Data");
-//		Pinch_Data << "Finger Location, Internal Impedance, Reflection Coefficient" << "/n";
-//		Pinch_Data << x << ";" << fingerPinch.getZinTotal << ";" << fingerPinch.getGammaTotal(f) << "/n";
-//		Pinch_Data.close();
-//		if (!Pinch_Data) {
-//			cout << "Error opening file" << endl;
-//			return -1;
-//		}
+		//building a vector of finger positions to be passed into outputFile for data analysis
+		vector <double> fingerPositions;
+		fingerPositions.push_back(x);
 
+		//building a vector of reflection coeff magnitudes to be passed into outputFile for data analysis
+		vector <double> magnitudes;
+		magnitudes.push_back(x);
 
-		//		TRLine seg = TRLine(zLoad, desiredXSect, lengths.at(i));
-		//		cout << i << "Inner Impedance (ohms), Reflection Coefficient = " << seg.getZin(f)
-		//													<< ", " << seg.getGamma() << endl;
+		//building a vector of finger positions to be passed into outputFile for data analysis
+		vector <double> phases;
+		phases.push_back(x);
+
 	}
+	outputData(fingerPositions, magnitudes, phases);
+
 	//prints out new total Zin and reflection coeff after TRLine is pinched
 	TRLinesTotal newTotal(TRLines, lengths, zLoad);
 	cout << "Zin (ohms), Reflection Coefficient = " << newTotal.getZinTotal(f)
-																			<< ", " << newTotal.getGammaTotal(f) << endl;
+																											<< ", " << newTotal.getGammaTotal(f) << endl;
 	return 20;
 }
 

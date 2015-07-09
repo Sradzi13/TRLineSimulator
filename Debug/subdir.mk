@@ -6,6 +6,7 @@
 CPP_SRCS += \
 ../CoaxXSection.cpp \
 ../MicrostripXSection.cpp \
+../OutputFile.cpp \
 ../StriplineXSection.cpp \
 ../TRLine.cpp \
 ../TRLineXSect.cpp \
@@ -15,6 +16,7 @@ CPP_SRCS += \
 OBJS += \
 ./CoaxXSection.o \
 ./MicrostripXSection.o \
+./OutputFile.o \
 ./StriplineXSection.o \
 ./TRLine.o \
 ./TRLineXSect.o \
@@ -24,6 +26,7 @@ OBJS += \
 CPP_DEPS += \
 ./CoaxXSection.d \
 ./MicrostripXSection.d \
+./OutputFile.d \
 ./StriplineXSection.d \
 ./TRLine.d \
 ./TRLineXSect.d \
