@@ -68,8 +68,7 @@ public:
 	 */
 	double getBeta(double f);
 
-
-	void setOuterRadius(double R0);
+	//void setOuterRadius(double R0);
 
 private:
 

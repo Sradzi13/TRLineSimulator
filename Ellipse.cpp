@@ -16,12 +16,12 @@ using namespace std;
 const double eps0 = 8.854 * pow(10.0 , -12.0);
 const double mu0 = 4.0 * M_PI * pow(10.0, -7.0);
 
-Ellipse::Ellipse(double r, double R, double eps, double a , double b) {
+Ellipse::Ellipse(double r, double R, double eps, double a)
+{
 	this -> r = r;
 	this -> R = R;
 	this -> eps = eps;
 	this -> a = a;
-	this -> b = b;
 }
 
 Ellipse::~Ellipse() {
@@ -66,13 +66,7 @@ double  Ellipse::getAlpha(){
 }
 
 double  Ellipse::getLambda(){
-	double num = pow(a, 2) - pow(b, 2);
-	double denom = pow(a, 2) + pow(b, 2);
+	double num = pow(a, 2) - pow(R, 2);
+	double denom = pow(a, 2) + pow(R, 2);
 	return num / denom;
 }
-
-/*Given permittivity and frequency, calculates Beta*/
-double Ellipse::getBeta(double f){
-	return ((2.0 * M_PI) * f * sqrt(mu0 * eps * eps0));
-}
-

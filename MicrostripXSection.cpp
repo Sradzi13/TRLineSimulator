@@ -55,7 +55,7 @@ double MicrostripXSection::getBeta(double f){
 }
 
 
-void MicrostripXSection::setOuterRadius(double R0){
-	//R = R0;
-}
+//void MicrostripXSection::setOuterRadius(double R0){
+//	//R = R0;
+//}
 

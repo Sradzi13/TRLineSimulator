@@ -17,7 +17,7 @@ public:
 	 * -----------------------
 	 * Links function parameters with privately declared variables
 	 */
-	CoaxXSection(double r, double R, double eps);
+	virtual CoaxXSection(double r, double R, double eps);
 
 	/*
 	 * Destructor: ~CoaxXSection
@@ -36,7 +36,7 @@ public:
 	 * of a XSection given its given dimensions (in this case: inner
 	 * radius, outer radius, and permittivity).
 	 */
-	double getZ0();
+	virtual double getZ0();
 
 	/*
 	 * Method: getF
@@ -66,11 +66,11 @@ public:
 	 */
 	double getBeta(double f);
 
-	void setOuterRadius(double R0);
+//	void setOuterRadius(double R0);
 
 private:
 
-	double r, R, eps;
+	double r, R, eps, a;
 };
 
 #endif /* COAXXSECTION_H_ */

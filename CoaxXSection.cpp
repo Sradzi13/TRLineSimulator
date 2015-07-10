@@ -19,6 +19,7 @@ CoaxXSection::CoaxXSection(double r, double R, double eps) {
 	this -> r = r;
 	this -> R = R;
 	this -> eps = eps;
+	//this -> a = a;
 }
 
 CoaxXSection::~CoaxXSection() {
@@ -46,8 +47,8 @@ double CoaxXSection::getBeta(double f){
 	return ((2.0 * M_PI) * f * sqrt(mu0 * eps * eps0));
 }
 
-void CoaxXSection::setOuterRadius(double R0){
-	R = R0;
-}
+//void CoaxXSection::setOuterRadius(double R0){
+//	R = R0;
+//}
 
 

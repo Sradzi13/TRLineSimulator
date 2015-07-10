@@ -97,7 +97,14 @@ int main() {
 			TRLine desiredSeg = pinchedSeg.at(j);
 			TRLineXSect* desiredXSect = desiredSeg.getXSections();
 			desiredXSect = (CoaxXSection *) desiredXSect;
-			desiredXSect -> setOuterRadius(R0);
+
+			cout << desiredXSect -> getZ0() << endl;
+
+			desiredXSect = (Ellipse *) desiredXSect;
+
+			cout << desiredXSect -> getZ0() << endl;
+
+			//desiredXSect -> setOuterRadius(R0);
 
 			//return segments to vector of complete XSections and recalculate Zin and Gamma
 			vector <TRLine> updated = TRLines;
@@ -151,7 +158,7 @@ int main() {
  * (includes Z0 and Beta).
  */
 TRLineXSect* getXSect(string type, double f){
-	double r, R, eps, w, h, t, b;
+	double r, R, eps, w, h, t, b, a;
 	TRLineXSect *trXSect = NULL;
 
 	/*If calculating microstrip Xsect, takes in width, height, strip thickness, and permittivity*/
@@ -191,8 +198,10 @@ TRLineXSect* getXSect(string type, double f){
 		cin >> R;
 		cout << "Permittivity:"<< endl;
 		cin >> eps;
+		cout << "Large elliptical radius when pinched (m):" << endl;
+		cin >> a;
 
-		return trXSect = new CoaxXSection (r, R, eps);
+		return trXSect = new CoaxXSection (r, R, eps, a);
 	}
 }
 
